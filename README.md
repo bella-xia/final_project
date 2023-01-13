@@ -12,4 +12,5 @@ Group Members:
  
      Trace Terrell
      
-     Our Research Question: How do different public health issues correlate with high school graduation rates across neighborhoods in Baltimore?
+Our Research Question: How do different public health issues correlate with high school graduation +
+rates across neighborhoods in Baltimore?
