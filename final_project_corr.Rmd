@@ -1,0 +1,93 @@
+---
+title: "final_project"
+author: "Bella Xia"
+date: "2023-01-18"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+library(ggplot2)
+```
+
+## import
+
+```{r}
+graduation <- read.csv("graduation.csv")
+```
+
+```{r}
+head(graduation)
+```
+```{r}
+KeepDrop = function(data=df,cols="var",newdata=df2,drop=1) {
+  # Double Quote Output Dataset Name
+  t = deparse(substitute(newdata))
+  # Drop Columns
+  if(drop == 1){
+    newdata = data [ , !(names(data) %in% scan(textConnection(cols), what="", sep=" "))]}
+  # Keep Columns
+  else {
+    newdata = data [ , names(data) %in% scan(textConnection(cols), what="", sep=" ")]}
+    assign(t, newdata, .GlobalEnv)
+}
+```
+
+
+```{r}
+KeepDrop(data=graduation, cols="Poverty_Cat", newdata=graduation_drop, drop = 1)
+KeepDrop(data=graduation_drop, cols="Community", newdata=graduation_drop, drop = 1)
+KeepDrop(data=graduation_drop, cols="X._Children_Poverty", newdata=graduation_drop, drop = 1)
+KeepDrop(data=graduation_drop, cols="num_arts_business", newdata=graduation_drop, drop = 1)
+KeepDrop(data=graduation_drop, cols="Location", newdata=graduation_drop, drop = 1)
+```
+
+
+```{r}
+head(graduation_drop)
+```
+
+
+```{r}
+scaled_grad = scale(graduation_drop)
+```
+
+```{r}
+head(scaled_grad)
+```
+
+```{r}
+grad_corr = cor(scaled_grad)
+```
+
+```{r}
+head(grad_corr)
+```
+```{r}
+library(RColorBrewer)
+```
+
+
+```{r}
+heatmap(grad_corr, col= colorRampPalette(brewer.pal(8, "Blues"))(25))
+```
+
+```{r}
+install.packages("corrplot")
+library(corrplot)
+```
+
+```{r}
+corrplot(grad_corr, number.cex = 0.5,addCoef.col = 1, type = "upper", tl.cex = 0.5,
+         order = "hclust", tl.col = "black")
+```
+
