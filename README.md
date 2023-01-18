@@ -42,7 +42,7 @@ Our Method:
   
  3. Find R-values to deduce which factor is most influential in high school completion rates.
  
-Google Slide presentation: https://docs.google.com/presentation/d/1AWdO_iH6wMpD9XWyPiAfJkdEX66HzaxoJvL_iMNhiEY/edit?usp=sharing
+Google Slide presentation: https://docs.google.com/presentation/d/1IaItovce3LfXa1dq5FwjzRrgE3Lt3tXS7l0J6g4pLO4/edit?usp=sharing
  
 Google Sheet: https://livejohnshopkins-my.sharepoint.com/:x:/g/personal/nmedina6_jh_edu/EUOcnTToxFVPnEh6Ci8ujxEB2nn7mYNfaEtaCn-2nKOPHQ?e=qovgkz
       
