@@ -77,8 +77,8 @@ library(RColorBrewer)
 ```
 
 
-```{r}
-heatmap(grad_corr, col= colorRampPalette(brewer.pal(8, "Blues"))(25))
+```{r heatmap, dev = "png"}
+heatmap(grad_corr, col= colorRampPalette(brewer.pal(8, "Blues"))(25), cexRow = 0.5, cexCol = 0.5)
 ```
 
 ```{r}
@@ -86,7 +86,7 @@ install.packages("corrplot")
 library(corrplot)
 ```
 
-```{r}
+```{r corrplot, dev = "png"}
 corrplot(grad_corr, number.cex = 0.5,addCoef.col = 1, type = "upper", tl.cex = 0.5,
          order = "hclust", tl.col = "black")
 ```
