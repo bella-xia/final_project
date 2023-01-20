@@ -49,6 +49,7 @@ KeepDrop(data=graduation_drop, cols="Community", newdata=graduation_drop, drop =
 KeepDrop(data=graduation_drop, cols="X._Children_Poverty", newdata=graduation_drop, drop = 1)
 KeepDrop(data=graduation_drop, cols="num_arts_business", newdata=graduation_drop, drop = 1)
 KeepDrop(data=graduation_drop, cols="Location", newdata=graduation_drop, drop = 1)
+KeepDrop(data=graduation_drop, cols="Library_card", newdata=graduation_drop, drop = 1)
 ```
 
 
@@ -78,7 +79,10 @@ library(RColorBrewer)
 
 
 ```{r heatmap, dev = "png"}
-heatmap(grad_corr, col= colorRampPalette(brewer.pal(8, "Blues"))(25), cexRow = 0.5, cexCol = 0.5)
+hm = heatmap(grad_corr, col= colorRampPalette(brewer.pal(8, "PiYG"))(25), 
+        cexRow = 0.6, cexCol = 0.6)
+ op <- par(cex = 0.5)
+legend(x = "right", legend=round(seq(-1, 1, length = 25), 2), fill = colorRampPalette(brewer.pal(8, "PiYG"))(25))
 ```
 
 ```{r}
@@ -87,7 +91,7 @@ library(corrplot)
 ```
 
 ```{r corrplot, dev = "png"}
-corrplot(grad_corr, number.cex = 0.5,addCoef.col = 1, type = "upper", tl.cex = 0.5,
+corrplot(grad_corr, number.cex = 0.5,addCoef.col = 1, tl.cex = 0.6,
          order = "hclust", tl.col = "black")
 ```
 
